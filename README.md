@@ -69,15 +69,13 @@ Network-Intrusion-Detection-System/
 4. Use this prediction to monitor or respond to threats.
 
 ---
-
 ## 📸 Screenshots
 
 ### ✅ Prediction: Normal (Safe Traffic)
-![Normal Prediction]![Alt Text](Results\Screenshot 2025-07-21 153608.png)
+![Normal Prediction](Results/Screenshot%202025-07-21%20153608.png)
 
 ### 🚨 Prediction: PROBE (Threat Detected)
-![Probe Prediction]![Alt Text](Results\Screenshot 2025-07-21 153033.png)
-
+![Probe Prediction](Results/Screenshot%202025-07-21%20153033.png)
 
 ---
 
