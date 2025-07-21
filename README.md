@@ -72,10 +72,10 @@ Network-Intrusion-Detection-System/
 ## 📸 Screenshots
 
 ### ✅ Prediction: Normal (Safe Traffic)
-![Normal Prediction](Results/Screenshot%202025-07-21%20153608.png)
+![](Results/Screenshot%202025-07-21%20153608.png)
 
 ### 🚨 Prediction: PROBE (Threat Detected)
-![Probe Prediction](Results/Screenshot%202025-07-21%20153033.png)
+![](Results/Screenshot%202025-07-21%20153033.png)
 
 ---
 
