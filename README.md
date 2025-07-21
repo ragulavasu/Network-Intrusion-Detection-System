@@ -73,14 +73,11 @@ Network-Intrusion-Detection-System/
 ## 📸 Screenshots
 
 ### ✅ Prediction: Normal (Safe Traffic)
-![Normal Prediction](https://raw.githubusercontent.com/ragulavasu/Network-Intrusion-Detection-System/main/screenshots/normal_prediction.png)
+![Normal Prediction]![Alt Text](Results\Screenshot 2025-07-21 153608.png)
 
 ### 🚨 Prediction: PROBE (Threat Detected)
-![Probe Prediction](https://raw.githubusercontent.com/ragulavasu/Network-Intrusion-Detection-System/main/screenshots/probe_prediction.png)
+![Probe Prediction]![Alt Text](Results\Screenshot 2025-07-21 153033.png)
 
-> **Note**: Ensure your GitHub repo contains these images under `screenshots/` for them to render:
-> - `screenshots/normal_prediction.png`
-> - `screenshots/probe_prediction.png`
 
 ---
 
@@ -104,7 +101,7 @@ Distributed under the **MIT License**. See `LICENSE` for details.
 
 **Ragula Vasu**  
 GitHub: [@ragulavasu](https://github.com/ragulavasu)  
-Email: *vasuragula436.com*
+Email: *vasuragula436@gmail.com*
 
 ---
 

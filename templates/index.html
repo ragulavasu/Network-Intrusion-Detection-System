@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Network Intrusion Detection System</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #2c3e50 0%, #3498db 100%);
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 2.2rem;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        .header p {
+            font-size: 1rem;
+            opacity: 0.9;
+        }
+
+        .form-container {
+            padding: 40px;
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            color: #333;
+            font-weight: 500;
+            font-size: 0.95rem;
+        }
+
+        input[type="text"], select {
+            width: 100%;
+            padding: 12px 15px;
+            border: 2px solid #e1e8ed;
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
+            background: #fff;
+        }
+
+        input[type="text"]:focus, select:focus {
+            outline: none;
+            border-color: #3498db;
+            box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.1);
+        }
+
+        .btn {
+            background: linear-gradient(135deg, #3498db 0%, #2c3e50 100%);
+            color: white;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            width: 100%;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(52, 152, 219, 0.3);
+        }
+
+        .btn:active {
+            transform: translateY(0);
+        }
+
+        .result {
+            margin-top: 30px;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            font-size: 1.2rem;
+            font-weight: 600;
+        }
+
+        .result.normal {
+            background: #d4edda;
+            color: #155724;
+            border: 2px solid #c3e6cb;
+        }
+
+        .result.threat {
+            background: #f8d7da;
+            color: #721c24;
+            border: 2px solid #f5c6cb;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        @media (max-width: 768px) {
+            .grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .header h1 {
+                font-size: 1.8rem;
+            }
+            
+            .form-container {
+                padding: 20px;
+            }
+        }
+
+        .icon {
+            display: inline-block;
+            margin-right: 8px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🛡️ Network Intrusion Detection System</h1>
+            <p>ML-based threat detection</p>
+        </div>
+        
+        <div class="form-container">
+            <form action="{{ url_for('predict') }}" method="post">
+                <div class="grid">
+                    <div class="form-group">
+                        <label for="attack">🎯 Attack Type:</label>
+                        <select id="attack" name="attack" required>
+                            <option value="0">Other</option>
+                            <option value="1">Neptune</option>
+                            <option value="2">Normal</option>
+                            <option value="3">Satan</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="count">📊 Connection Count:</label>
+                        <input type="text" name="count" placeholder="Enter connection count" required />
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="dst_host_diff_srv_rate">🔄 Different Service Rate (%):</label>
+                    <input type="text" name="dst_host_diff_srv_rate" placeholder="Percentage of different services" required />
+                </div>
+
+                <div class="form-group">
+                    <label for="dst_host_same_src_port_rate">🔌 Same Source Port Rate (%):</label>
+                    <input type="text" name="dst_host_same_src_port_rate" placeholder="Percentage of same source ports" required />
+                </div>
+
+                <div class="form-group">
+                    <label for="dst_host_same_srv_rate">⚙️ Same Service Rate (%):</label>
+                    <input type="text" name="dst_host_same_srv_rate" placeholder="Percentage of same services" required />
+                </div>
+
+                <div class="grid">
+                    <div class="form-group">
+                        <label for="dst_host_srv_count">🔢 Service Count:</label>
+                        <input type="text" name="dst_host_srv_count" placeholder="Number of connections" required />
+                    </div>
+
+                    <div class="form-group">
+                        <label for="flag">🚩 Connection Flag:</label>
+                        <select id="flag" name="flag" required>
+                            <option value="0">Other</option>
+                            <option value="1">S0</option>
+                            <option value="2">SF</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="grid">
+                    <div class="form-group">
+                        <label for="last_flag">🏁 Last Flag:</label>
+                        <input type="text" name="last_flag" placeholder="Enter last flag value" required />
+                    </div>
+
+                    <div class="form-group">
+                        <label for="logged_in">🔐 Login Status:</label>
+                        <input type="text" name="logged_in" placeholder="1 for logged in, 0 otherwise" required />
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="same_srv_rate">📈 Same Service Rate (%):</label>
+                    <input type="text" name="same_srv_rate" placeholder="Percentage of same services" required />
+                </div>
+
+                <div class="form-group">
+                    <label for="serror_rate">⚠️ Error Rate (%):</label>
+                    <input type="text" name="serror_rate" placeholder="Percentage of connection errors" required />
+                </div>
+
+                <div class="form-group">
+                    <label for="service_http">🌐 HTTP Service:</label>
+                    <select id="service_http" name="service_http" required>
+                        <option value="0">No</option>
+                        <option value="1">Yes</option>
+                    </select>
+                </div>
+
+                <button type="submit" class="btn">
+                    🔍 Analyze Network Traffic
+                </button>
+            </form>
+
+            {% if output %}
+            <div class="result {% if output == 'Normal' %}normal{% else %}threat{% endif %}">
+                {% if output == 'Normal' %}
+                    <span class="icon">✅</span>
+                    <strong>Network Status: {{ output }}</strong>
+                    <div style="margin-top: 8px; font-size: 1rem; font-weight: normal;">
+                        No threats detected. Connection appears safe.
+                    </div>
+                {% else %}
+                    <span class="icon">🚨</span>
+                    <strong>Threat Detected: {{ output }}</strong>
+                    <div style="margin-top: 8px; font-size: 1rem; font-weight: normal;">
+                        Suspicious activity identified. Review security protocols.
+                    </div>
+                {% endif %}
+            </div>
+            {% endif %}
+        </div>
+    </div>
+</body>
+</html>
